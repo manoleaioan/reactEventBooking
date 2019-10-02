@@ -1,0 +1,26 @@
+.bookingList{
+  margin-top: 50px;
+}
+
+.bookingItm{
+  margin-bottom: 25px;
+  max-width: 600px;
+}
+
+.bookingItm .row {
+  margin: 0;
+  justify-content: space-between;
+  align-content: center;
+  align-items: baseline;
+}
+
+.bookingItm .card-body .col {
+  padding: 0;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+.bookingItm .card-body .col button{
+  margin: 0 !important;
+}

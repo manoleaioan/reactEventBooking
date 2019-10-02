@@ -1,0 +1,24 @@
+.eventItm{
+  margin-bottom: 25px;
+  max-width: 600px;
+}
+
+.eventItm .row {
+  margin: 0;
+  justify-content: space-between;
+  align-content: center;
+  align-items: baseline;
+}
+
+.eventItm .card-body .row h6 {
+  align-items: center;
+  margin: 0;
+}
+
+.eventItm .card-body .col {
+  padding: 0;
+}
+
+.eventItm .card-body .right {
+  text-align: right;
+}

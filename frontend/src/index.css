@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  padding: 0;
+  /* Font-Family: 'Cabin', Sans-Serif !important; */
+  /* Font-Size: 16px !important; */
+  /* font: 400 15px/1.2 'Merienda One', Helvetica, sans-serif !important; */
+}
+
+/* h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 700 !important;
+  font-style: italic !important;
+ } */
+
+* {
+  outline: none !important;
+}

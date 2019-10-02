@@ -1,0 +1,61 @@
+.mainNav{
+  cursor: pointer;
+}
+
+.navbar-brand span{
+  padding: 0;
+}
+
+.mainNav .dropdown-menu {
+  left: -26px !important;
+}
+
+.bg-darkv2 {
+  background-color: #20232a!important;
+}
+
+.navbar-toggler{
+  z-index: 1;
+}
+
+.navbar-brand{
+  z-index: 0;
+  position: absolute;
+}
+
+@media only screen and (max-width: 575px) {
+  .navbar-brand{
+    left: 0;
+    right: 0;
+    top:0;
+    margin-top: 8px;
+    justify-content: center;
+  }
+
+  .navbar-nav {
+    margin-top: 20px;
+  }
+
+  .navbar-nav .active{
+    background: #32353d;
+    border-radius: 7px;
+  }
+
+  .navbar-nav .nav-link {
+    padding-right: unset; 
+    padding-left: 20px !important;
+  }
+}
+
+.mainNav .dropdown-divider {
+  border-top: 1px solid #414756;
+}
+
+@media only screen and (min-width: 576px) {
+  .mainNav .profileNav {
+    right: 37px;
+    position: absolute
+    /* margin-left: -83px;
+    padding-right: 22px; */
+  }
+}

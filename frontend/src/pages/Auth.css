@@ -1,0 +1,16 @@
+.authContent{
+  margin-top: 50px;
+}
+
+.authContent .switch{
+  color:#007bff;
+  cursor: pointer;
+}
+
+.authContent .switch:hover{
+  text-decoration: underline;
+}
+
+.errAlert p{
+  margin:0;
+}
