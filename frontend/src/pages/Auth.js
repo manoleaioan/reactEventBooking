@@ -8,7 +8,7 @@ class AuthPage extends Component {
   constructor(props){
     super(props)
     this.state = {
-      err: false,
+      err: '',
       isLogin: true
     }
     this.emailEl = React.createRef();
@@ -23,11 +23,18 @@ class AuthPage extends Component {
     const email = this.emailEl.current.value;
     const password = this.passwordEl.current.value;
 
+    if(email=="" || password==""){
+      this.setState({err:"All fields required!"});
+      return
+    }else{
+      this.setState({err:""});
+    }
+
     if(!this.state.isLogin){
       const confPassword = this.confPasswordEl.current.value;
 
       if(password != confPassword){
-        this.setState({err:true})
+        this.setState({err:"Password confirmation and Password doesn't match"})
       }
     }
 
@@ -72,11 +79,14 @@ class AuthPage extends Component {
       }
     }).then(res => {
       if(res.status !== 200 && res.status != 201){
-        throw new Error('Failed');
+        if(this.state.isLogin){
+          this.setState({err:"You have entered an invalid username or password"})
+          return;
+        }
       }
       return res.json();
     }).then(resData => {
-      if(resData.data.login.token){
+      if(resData && resData.data.login.token){
         this.context.login(
           resData.data.login.token, 
           resData.data.login.userId, 
@@ -85,17 +95,17 @@ class AuthPage extends Component {
       }
     })
     .catch(err => {
-      console.log(err);
+      if(err == "TypeError: Failed to fetch")
+        this.setState({err:"Connection error"})
     });
   }
   
-  AlertNotif = (err) => {
-    if (err) {
+  AlertNotif = () => {
+    const {err} = this.state
+    if (err != '') {
       return (
-        <Alert className="errAlert" variant="danger" onClose={() => this.setState({err: false})} dismissible>
-          <p>
-            Password confirmation doesn't match!
-          </p>
+        <Alert className="errAlert" variant="danger" onClose={() => this.setState({err: ''})} dismissible>
+          <p>{err}</p>
         </Alert>
       );
     }
@@ -105,7 +115,8 @@ class AuthPage extends Component {
   switchModeHandler = () => {
     this.setState( prev => {
      return {
-       isLogin: !prev.isLogin
+       isLogin: !prev.isLogin,
+       err:""
      }
     })
   }
@@ -115,7 +126,7 @@ class AuthPage extends Component {
       <Container className="authContent">
         <Row className="justify-content-center">
           <Col xs={9} sm={9} md={7} lg={5} xl={4} >
-          {this.AlertNotif(this.state.err)}
+          {this.AlertNotif()}
           </Col>
         </Row>
         <Row className="justify-content-center">

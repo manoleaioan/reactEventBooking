@@ -72,6 +72,10 @@ class BookingsPage extends Component {
           }
         }
       `
+      ,
+      variables:{
+        id:bookingId
+      }
     };
 
     const token = this.context.token;
